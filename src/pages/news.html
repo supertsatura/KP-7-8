@@ -1,59 +1,43 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang = "ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Новости</title>
+    <link rel="stylesheet" href="../../styles/style_news.css">
 </head>
 <body>
-<header class="header">
-    <div class="header__container">
-        <nav class="header__menu">
-            <ul class="header__menu-list">
-                <li class="header__menu-item">
-                    <a class="header__menu-link" href="../index.html">Главная</a>
-                </li>
-                <li class="header__menu-item">
-                    <a class="header__menu-link" href="news.html">Новости</a>
-                </li>
-                <li class="header__menu-item">
-                    <a class="header__menu-link" href="practices.html">Практики</a>
-                </li>
-                <li class="header__menu-item">
-                    <a class="header__menu-link" href="goods.html">Товары</a>
-                </li>
-                <li class="header__menu-item">
-                    <a class="header__menu-link" href="contacts.html">Контакты</a>
-                </li>
-            </ul>
-        </nav>
+<div class="page-container">
+    <div class="header">Новости</div>
+    <div class="nav">
+        <ul class="nav-list">
+            <li class="nav-item"><a class="nav-link" href="../index.html">Главная</a></li>
+            <li class="nav-item"><a class="nav-link" href="news.html">Новости</a></li>
+<!--            <li class="nav-item"><a class="nav-link" href="practices.html">Практики</a></li>-->
+            <li class="nav-item"><a class="nav-link" href="goods.html">Товары</a></li>
+            <li class="nav-item"><a class="nav-link" href="contacts.html">Контакты</a></li>
+        </ul>
     </div>
-</header>
-<main class="main">
-    <section class="content">
-        <div class="content__item">
-            <h3 class="content__title">Новость 1</h3>
-            <p class="content__intelligence">01-10-2025 00:00 Д. А. Цатурян</p>
-            <p class="content__info">Текст новости...</p>
+    <main class="main">
+        <div class="content">
+            <h1 class="title">Новости</h1>
+            <div class="content__card">
+                <h3 class="content__title">Новость 1</h3>
+                <p class="content__intelligence">01-10-2025 00:00 Д. А. Цатурян</p>
+                <p class="content__info">Текст новости...</p>
+            </div>
+            <div class="content__card">
+                <h3 class="content__title">Новость 2</h3>
+                <p class="content__intelligence">01-10-2025 00:00 Д. А. Цатурян</p>
+                <p class="content__info">Текст новости...</p>
+            </div>
+            <div class="content__card">
+                <h3 class="content__title">Новость 3</h3>
+                <p class="content__intelligence">01-10-2025 00:00 Д. А. Цатурян</p>
+                <p class="content__info">Текст новости...</p>
+            </div>
         </div>
-        <div class="content__item">
-            <h3 class="content__title">Новость 2</h3>
-            <p class="content__intelligence">01-10-2025 00:00 Д. А. Цатурян</p>
-            <p class="content__info">Текст новости...</p>
-        </div>
-        <div class="content__item">
-            <h3 class="content__title">Новость 2</h3>
-            <p class="content__intelligence">01-10-2025 00:00 Д. А. Цатурян</p>
-            <p class="content__info">Текст новости...</p>
-        </div>
-    </section>
-</main>
-<footer class="footer">
-    <div class="footer__container">
-        <div class="footer-body">
-            <div class="footer__container-description">Подвал сайта</div>
-        </div>
-    </div>
-</footer>
+    </main>
+    <footer class="footer">Футер</footer>
+</div>
 </body>
-</html>

@@ -4,67 +4,54 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Товары</title>
-    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../../styles/style_goods.css">
 </head>
 <body>
-<header class="header">
-    <div class="header__container">
-        <nav class="header__menu">
-            <ul class="header__menu-list">
-                <li class="header__menu-item">
-                    <a class="header__menu-link" href="../index.html">Главная</a>
-                </li>
-                <li class="header__menu-item">
-                    <a class="header__menu-link" href="news.html">Новости</a>
-                </li>
-                <li class="header__menu-item">
-                    <a class="header__menu-link" href="practices.html">Практики</a>
-                </li>
-                <li class="header__menu-item">
-                    <a class="header__menu-link" href="goods.html">Товары</a>
-                </li>
-                <li class="header__menu-item">
-                    <a class="header__menu-link" href="contacts.html">Контакты</a>
-                </li>
-            </ul>
-        </nav>
+<div class="page-container">
+    <div class="header">Мои товары</div>
+    <div class="nav">
+        <ul class="nav-list">
+            <li class="nav-item"><a class="nav-link" href="../index.html">Главная</a></li>
+            <li class="nav-item"><a class="nav-link" href="news.html">Новости</a></li>
+<!--            <li class="nav-item"><a class="nav-link" href="practices.html">Практики</a></li>-->
+            <li class="nav-item"><a class="nav-link" href="goods.html">Товары</a></li>
+            <li class="nav-item"><a class="nav-link" href="contacts.html">Контакты</a></li>
+        </ul>
     </div>
-</header>
-<main class="main">
-    <div class="container">
-        <div class="body">
-          <ul class="figures">
-              <li class="figures__item item">
-                  <figure class="item__card card">
-                      <img class="card__image" src="/assets/" alt="Товар 1">
-                      <figcaption class="card__figcaption">Название товара</figcaption>
-                      <div class="card__price">Цена товара</div>
-                  </figure>
-              </li>
-              <li class="figures__item item">
-                  <figure class="item__card card">
-                      <img class="card__image" src="/assets/" alt="Товар 1">
-                      <figcaption class="card__figcaption">Название товара</figcaption>
-                      <div class="card__price">Цена товара</div>
-                  </figure>
-              </li>
-              <li class="figures__item item">
-                  <figure class="item__card card">
-                      <img class="card__image" src="/assets/" alt="Товар 1">
-                      <figcaption class="card__figcaption">Название товара</figcaption>
-                      <div class="card__price">Цена товара</div>
-                  </figure>
-              </li>
-          </ul>
+    <main class="main">
+        <div class="container">
+            <h1 class="title">Каталог товаров</h1>
+                <ul class="figures">
+                    <li class="figures__item item">
+                        <figure class="item__card card">
+                            <div class="card__cover">
+                                <img class="card__image" src="/assets/папаха.png" alt="Товар 1">
+                            </div>
+                            <figcaption class="card__figcaption">Папаха</figcaption>
+                            <div class="card__price">2500.00 ₽</div>
+                        </figure>
+                    </li>
+                    <li class="figures__item item">
+                        <figure class="item__card card">
+                            <div class="card__cover">
+                                <img class="card__image" src="/assets/трико.png" alt="Товар 2">
+                            </div>
+                            <figcaption class="card__figcaption">Трико</figcaption>
+                            <div class="card__price">5000.00 ₽</div>
+                        </figure>
+                    </li>
+                    <li class="figures__item item">
+                        <figure class="item__card card">
+                            <div class="card__cover">
+                                <img class="card__image" src="/assets/борцовки.png" alt="Товар 3">
+                            </div>
+                            <figcaption class="card__figcaption">Борцовки</figcaption>
+                            <div class="card__price">3500.00 ₽</div>
+                        </figure>
+                    </li>
+                </ul>
         </div>
-    </div>
-</main>
-<footer class="footer">
-    <div class="footer__container">
-        <div class="footer-body">
-            <div class="footer__container-description">Подвал сайта</div>
-        </div>
-    </div>
-</footer>
+    </main>
+    <footer class="footer">Футер</footer>
+</div>
 </body>
-</html>
