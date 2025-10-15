@@ -4,74 +4,62 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Главная</title>
+    <link rel="stylesheet" href="../styles/style_index.css">
 </head>
 <body>
-<header class="header">
-    <div class="header__inner">
-        <nav class="header__menu">
-            <ul class="header__menu-list">
-                <li class="header__menu-item">
-                    <a class="header__menu-link" href="index.html">Главная</a>
-                </li>
-                <li class="header__menu-item">
-                    <a class="header__menu-link" href="pages/news.html">Новости</a>
-                </li>
-                <li class="header__menu-item">
-                    <a class="header__menu-link" href="pages/practices.html">Практики</a>
-                </li>
-                <li class="header__menu-item">
-                    <a class="header__menu-link" href="pages/goods.html">Товары</a>
-                </li>
-                <li class="header__menu-item">
-                    <a class="header__menu-link" href="pages/contacts.html">Контакты</a>
-                </li>
-            </ul>
-        </nav>
+<div class="page-container">
+    <div class="header">Главная страница</div>
+    <div class="nav">
+        <ul class="nav-list">
+            <li class="nav-item"><a class="nav-link" href="index.html">Главная</a></li>
+            <li class="nav-item"><a class="nav-link" href="pages/news.html">Новости</a></li>
+<!--            <li class="nav-item"><a class="nav-link" href="pages/practices.html">Практики</a></li>-->
+            <li class="nav-item"><a class="nav-link" href="pages/goods.html">Товары</a></li>
+            <li class="nav-item"><a class="nav-link" href="pages/contacts.html">Контакты</a></li>
+        </ul>
     </div>
-</header>
-<main class="main">
-    <section class="profile">
-        <div class="profile__author-info author-info">
-            <h1 class="author-info__title">Информация об авторе</h1>
-            <img class="author-info__image" src="/assets/photo.png" alt="Фото автора" width="100" height="100">
-            <h2 class="author-info__name">Цатурян Давид Ашотович</h2>
-            <p class="author-info__group">ЭФБО-05-24</p>
-            <div class="author-info__description description">
-                <fieldset class="description__fieldset">
-                    <legend class="description__legend">Обо мне:</legend>
-                    <p>Салам алейкум</p>
-                </fieldset>
+    <main class="main">
+        <div class="profile-header">
+            <h1 class="profile-title">Информация об авторе</h1>
+            <img class="profile-photo" src="/assets/photo.png" alt="Фото автора">
+            <h2 class="profile-name">Цатурян Давид Ашотович</h2>
+            <p class="profile-group">ЭФБО-05-24</p>
+        </div>
+        <div class="about-me">
+            <p>
+                Обо мне: Я родился во Владикавказе в 2004 году, в гетто моего города. Глупость
+                ударила в голову, и я решился поступить в Москву на программиста.
+            </p>
+        </div>
+        <div class="skills-container">
+            <div class="skill-tag">Навык 1</div>
+            <div class="skill-tag">Навык 2</div>
+            <div class="skill-tag">Навык 3</div>
+            <div class="skill-tag">Навык 4</div>
+        </div>
+        <div class="experience-section">
+            <h2 class="section-title">Мой опыт работы</h2>
+            <div class="experience-card">
+                <h3 class="experience-title">Опыт 1</h3>
+                <p class="experience-desc">
+                    Разработка баз данных.
+                </p>
+            </div>
+            <div class="experience-card">
+                <h3 class="experience-title">Опыт 2</h3>
+                <p class="experience-desc">
+                    Разработка десктопных приложений.
+                </p>
+            </div>
+            <div class="experience-card">
+                <h3 class="experience-title">Опыт 3</h3>
+                <p class="experience-desc">
+                    Разработка сайтов.
+                </p>
             </div>
         </div>
-    </section>
-    <div class="skill-container">
-        <div class="skill-container__item">Python</div>
-        <div class="skill-container__item">HTML/CSS/JS</div>
-        <div class="skill-container__item">C++/C#</div>
-        <div class="skill-container__item">SQL</div>
-    </div>
-    <section class="author-experience">
-        <div class="author-experience__container">
-            <h2 class="author-experience__title">Мой опыт работы:</h2>
-            <div class="author-experience__item">
-                <h3 class="author-experience__item-title">Опыт 1</h3>
-                <p class="author-experience__item-description">Работал фантазёром. Сочинял и праздновал.</p>
-            </div>
-            <div class="author-experience__item">
-                <h3 class="author-experience__item-title">Опыт 2</h3>
-                <p class="author-experience__item-description">Работал воровством. Воровал и продавал.</p>
-            </div>
-            <div class="author-experience__item">
-                <h3 class="author-experience__item-title">Опыт 3</h3>
-                <p class="author-experience__item-description">Работал рэпером. Читал и пел.</p>
-            </div>
-        </div>
-    </section>
-</main>
-<footer class="footer">
-    <div class="footer__container">
-        <p class="footer__container-description">Подвал сайта</p>
-    </div>
-</footer>
+    </main>
+    <footer class="footer">Футер</footer>
+</div>
 </body>
 </html>
