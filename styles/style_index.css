@@ -145,7 +145,7 @@ body {
 .profile-title {
     font-size: 32px; /* Размер шрифта заголовка */
     color: #2c3e50; /* Темно-синий цвет текста */
-    margin-bottom: 10px; /* Отступ снизу */
+    margin: 20px 0; /* Отступ снизу */
     font-weight: 300; /* Легкое начертание шрифта */
 }
 .profile-photo {
