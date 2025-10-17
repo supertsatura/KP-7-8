@@ -16,41 +16,40 @@ body {
 
 /* ===== КОНТЕЙНЕР СТРАНИЦЫ ===== */
 .page-container {
-    max-width: 1200px;
-    /* Максимальная ширина контента */
-    margin: 0 auto;
-    /* Центрирование контейнера по горизонтали */
-    background: white;
-    /* Белый фон для основного содержимого */
-    min-height: 100vh;
-    /* Минимальная высота равна высоте окна браузера */
-    box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
-    /* Легкая тень вокруг всего контента */
+    max-width: 1200px; /* Максимальная ширина контента */
+    margin: 0 auto; /* Центрирование контейнера по горизонтали */
+    background: white; /* Белый фон для основного содержимого */
+    min-height: 100vh; /* Минимальная высота равна высоте окна браузера */
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.1); /* Легкая тень вокруг всего контента */
+    /* Новое: Сеточный макет для семантических областей */
+    display: grid;
+    grid-template-rows: auto auto 1fr auto;
+    grid-template-areas:
+    "header"
+    "nav"
+    "main"
+    "footer";
 }
 
 /* ===== ШАПКА ===== */
 .header {
-    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
-    /* Темный 
-градиентный фон */
-    color: white;
-    /* Белый цвет текста */
-    text-align: center;
-    /* Выравнивание текста по центру */
-    padding: 30px;
-    /* Внутренние отступы со всех сторон */
-    font-size: 28px;
-    /* Размер шрифта */
-    font-weight: 300;
-    /* Легкое начертание шрифта */
-    letter-spacing: 2px;
-    /* Расстояние между буквами */
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%); /* Темный градиентный фон */
+    color: white; /* Белый цвет текста */
+    text-align: center; /* Выравнивание текста по центру */
+    padding: 30px; /* Внутренние отступы со всех сторон */
+    font-size: 28px; /* Размер шрифта */
+    font-weight: 300; /* Легкое начертание шрифта */
+    letter-spacing: 2px; /* Расстояние между буквами */
+    /* Новое: Привязка к области сетки */
+    grid-area: header;
 }
 
 /* ===== НАВИГАЦИЯ ===== */
 .nav {
     background: #2c3e50; /* Темно-синий фон навигации */
     padding: 20px 0; /* Вертикальные отступы */
+    /* Новое: Привязка к области сетки */
+    grid-area: nav;
 }
 
 .nav-list {
@@ -97,15 +96,17 @@ body {
 }
 
 /* ===== ОСНОВНОЙ КОНТЕНТ ===== */
-.main {
+main.main {
     padding: 40px; /* Внутренние отступы контента */
     max-width: 900px; /* Максимальная ширина контента */
     margin: 0 auto; /* Центрирование контента */
+    /* Новое: Привязка к области сетки */
+    grid-area: main;
 }
 
 .content {
     display: flex;
-    flex-direction:  column;
+    flex-direction: column;
     align-items: center;
 }
 
@@ -166,14 +167,29 @@ body {
 /* ===== ФУТЕР ===== */
 .footer {
     background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
-    /* Темный 
-градиентный фон */
     color: white;
-    /* Белый цвет текста */
     text-align: center;
-    /* Выравнивание по центру */
     padding: 30px;
-    /* Внутренние отступы */
     margin-top: 50px;
-    /* Отступ сверху */
+    /* Новое: Привязка к области сетки */
+    grid-area: footer;
+}
+
+@media (max-width: 768px) {
+    .nav-list {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .experience-grid {
+        grid-template-columns: 1fr;
+    }
+
+    main.content {
+        padding: 20px;
+    }
 }
