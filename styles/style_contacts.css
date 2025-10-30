@@ -348,7 +348,12 @@ dialog {
 @media (max-width: 768px) {
     .nav-list {
         flex-direction: column;
+        align-items: center;
         gap: 10px;
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr;
     }
 
     .skills-grid {

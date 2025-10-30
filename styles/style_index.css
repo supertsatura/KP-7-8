@@ -224,6 +224,7 @@ main.main {
 @media (max-width: 768px) {
     .nav-list {
         flex-direction: column;
+        align-items: center;
         gap: 10px;
     }
     .skills-grid {
