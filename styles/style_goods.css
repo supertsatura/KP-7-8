@@ -84,15 +84,15 @@ main.main {
 }
 
 .content {
-    text-align: center;
+
 }
 
 .title {
-
     font-size: 32px; /* Размер шрифта заголовка */
     color: #2c3e50; /* Темно-синий цвет текста */
     margin: 20px 0; /* Отступ снизу */
     font-weight: 300; /* Легкое начертание шрифта */
+    text-align: center;
 }
 
 .figures {
@@ -109,7 +109,6 @@ main.main {
     border-radius: 12px; /* Скругленные углы */
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08); /* Легкая тень */
     transition: transform 0.3s ease; /* Плавная анимация трансформации */
-    padding: 25px; /* Внутренние отступы */
 }
 
 .figures__item:hover {
@@ -117,12 +116,12 @@ main.main {
     box-shadow: 0 6px 20px rgba(79, 172, 254, 0.4); /* Увеличение тени при наведении */
 }
 
-.item__card {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
+/*.item__card {*/
+/*    display: flex;*/
+/*    justify-content: center;*/
+/*    align-items: center;*/
+/*    flex-direction: column;*/
+/*}*/
 
 .card__cover {
     object-fit: cover;
@@ -168,6 +167,11 @@ main.main {
 @media (max-width: 768px) {
     .nav-list {
         flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+    .figures{
+        flex-direction: column;
         gap: 10px;
     }
     .skills-grid {
@@ -177,6 +181,6 @@ main.main {
         grid-template-columns: 1fr;
     }
     main.content {
-        padding: 20px;
+        grid-template-columns: 1fr;
     }
 }
