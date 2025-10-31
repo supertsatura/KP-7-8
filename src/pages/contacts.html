@@ -7,47 +7,64 @@
     <link rel="stylesheet" href="../../styles/style_contacts.css">
 </head>
 <body>
-<div class="page-container">
+<div class="page">
     <header class="header">
-        <h1>Наши контакты</h1>
+        <h1 class="header__title">Мои контакты</h1>
     </header>
     <nav class="nav">
-        <ul class="nav-list">
-            <li class="nav-item"><a class="nav-link" href="../index.html">Главная</a></li>
-            <li class="nav-item"><a class="nav-link" href="news.html">Новости</a></li>
-            <li class="nav-item"><a class="nav-link" href="goods.html">Товары</a></li>
-            <li class="nav-item"><a class="nav-link" href="contacts.html">Контакты</a></li>
+        <ul class="nav__list">
+            <li class="nav__item"><a class="nav__link" href="../index.html">Главная</a></li>
+            <li class="nav__item"><a class="nav__link" href="news.html">Новости</a></li>
+            <li class="nav__item"><a class="nav__link" href="goods.html">Товары</a></li>
+            <li class="nav__item nav__item--active"><a class="nav__link" href="contacts.html">Контакты</a></li>
+            <li class="nav__item">
+                <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему">
+                    🌙
+                </button>
+            </li>
         </ul>
     </nav>
     <main class="main">
-        <div class="content">
-            <h1 class="title">Контакты</h1>
-            <div class="email">
-                Адрес электронной почты: davidtsaturyan24@inbox.ru
-            </div>
-            <div class="address">
-                Адрес: г. Владикавказ, ул. пр-кт Героев Отечества 4.
-            </div>
-            <div class="contact-grid">
+        <div class="contacts">
+            <h1 class="contacts__title">Контакты</h1>
+            <div class="contacts__list">
                 <div class="contact-item">
-                    <h3>Телефон</h3>
-                    <p>+7 (777) 777-77-77</p>
+                    <h3 class="contact-item__title">Адрес электронной почты</h3>
+                    <p class="contact-item__value">
+                        davidtsaturyan24@inbox.ru
+                    </p>
                 </div>
                 <div class="contact-item">
-                    <h3>Время работы</h3>
-                    <p>Пн-Пт: 9:00-18:00</p>
+                    <h3 class="contact-item__title">Адрес</h3>
+                    <p class="contact-item__value">
+                        г. Владикавказ, ул. пр-кт Героев Отечества 4.
+                    </p>
                 </div>
                 <div class="contact-item">
-                    <h3>Социальные сети</h3>
-                    <p><span style="color: blue">VK</span> <span style="color: steelblue">Telegram</span> <span style="color: forestgreen">WhatsApp</span></p>
+                    <h3 class="contact-item__title">Телефон</h3>
+                    <p class="contact-item__value">
+                        +7 (777) 777-77-77
+                    </p>
                 </div>
+                <div class="contact-item">
+                    <h3 class="contact-item__title">Время работы</h3>
+                    <p class="contact-item__value">Пн-Пт: 9:00-18:00</p>
+                </div>
+                <div class="contact-item">
+                    <h3 class="contact-item__title">Социальные сети</h3>
+                    <p class="contact-item__value">
+                        <span style="color: blue">VK</span>
+                        <span style="color: steelblue">Telegram</span>
+                        <span style="color: forestgreen">WhatsApp</span>
+                    </p>
+                </div>
+                <button class="contact-button" onclick="contactModal.showModal()">Позвонить мне</button>
             </div>
-            <button class="contact-button" onclick="contactModal.showModal()">Позвонить мне</button>
         </div>
     </main>
-    <div class="footer">
-        © 2024 Все права защищены. Контактная информация
-    </div>
+    <footer class="footer">
+        <p class="footer__text">&copy; 2024 Мой сайт</p>
+    </footer>
     <!-- Модальное окно для формы обратной связи -->
     <dialog id="contactModal">
         <div class="modal-header">
@@ -142,5 +159,56 @@
             });
     </script>
 </div>
+<script>
+    // Функция для переключения темы
+    function toggleTheme() {
+        const currentTheme = document.documentElement.getAttribute('data-theme');
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+        // Устанавливаем новую тему
+        document.documentElement.setAttribute('data-theme', newTheme);
+
+        // Обновляем текст кнопки
+        const themeToggle = document.getElementById('themeToggle');
+        themeToggle.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+
+        // Сохраняем выбор пользователя в localStorage
+        localStorage.setItem('theme', newTheme);
+    }
+
+    // Функция для инициализации темы при загрузке страницы
+    function initializeTheme() {
+        const savedTheme = localStorage.getItem('theme');
+        const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+        let theme = 'light';
+
+        if (savedTheme) {
+            theme = savedTheme;
+        } else if (systemPrefersDark) {
+            theme = 'dark';
+        }
+
+        // Устанавливаем тему
+        document.documentElement.setAttribute('data-theme', theme);
+
+        // Обновляем текст кнопки
+        const themeToggle = document.getElementById('themeToggle');
+        if (themeToggle) {
+            themeToggle.textContent = theme === 'dark' ? '☀️' : '🌙';
+        }
+    }
+
+    // Инициализируем тему при загрузке страницы
+    document.addEventListener('DOMContentLoaded', initializeTheme);
+
+    // Добавляем обработчик события для кнопки переключения темы
+    document.addEventListener('DOMContentLoaded', function() {
+        const themeToggle = document.getElementById('themeToggle');
+        if (themeToggle) {
+            themeToggle.addEventListener('click', toggleTheme);
+        }
+    });
+</script>
 </body>
 </html>

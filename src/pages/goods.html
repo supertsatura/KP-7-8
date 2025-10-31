@@ -7,56 +7,104 @@
     <link rel="stylesheet" href="../../styles/style_goods.css">
 </head>
 <body>
-<div class="page-container">
+<div class="page">
     <header class="header">
-        <h1>Наши товары</h1>
+        <h1 class="header__title">Мои товары</h1>
     </header>
     <nav class="nav">
-        <ul class="nav-list">
-            <li class="nav-item"><a class="nav-link" href="../index.html">Главная</a></li>
-            <li class="nav-item"><a class="nav-link" href="news.html">Новости</a></li>
-            <li class="nav-item"><a class="nav-link" href="goods.html">Товары</a></li>
-            <li class="nav-item"><a class="nav-link" href="contacts.html">Контакты</a></li>
+        <ul class="nav__list">
+            <li class="nav__item"><a class="nav__link" href="../index.html">Главная</a></li>
+            <li class="nav__item"><a class="nav__link" href="news.html">Новости</a></li>
+            <li class="nav__item nav__item--active"><a class="nav__link" href="goods.html">Товары</a></li>
+            <li class="nav__item"><a class="nav__link" href="contacts.html">Контакты</a></li>
+            <li class="nav__item">
+                <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему">
+                    🌙
+                </button>
+            </li>
         </ul>
     </nav>
     <main class="main">
-        <div class="content">
-            <h1 class="title">
-                Каталог товаров
-            </h1>
-                <ul class="figures">
-                    <li class="figures__item item">
-                        <figure class="item__card card">
-                            <div class="card__cover">
-                                <img class="card__image" src="../../assets/папаха.png" alt="Товар 1">
-                            </div>
-                            <figcaption class="card__figcaption">Папаха</figcaption>
-                            <div class="card__price">2500.00 ₽</div>
-                        </figure>
-                    </li>
-                    <li class="figures__item item">
-                        <figure class="item__card card">
-                            <div class="card__cover">
-                                <img class="card__image" src="../../assets/трико.png" alt="Товар 2">
-                            </div>
-                            <figcaption class="card__figcaption">Трико</figcaption>
-                            <div class="card__price">5000.00 ₽</div>
-                        </figure>
-                    </li>
-                    <li class="figures__item item">
-                        <figure class="item__card card">
-                            <div class="card__cover">
-                                <img class="card__image" src="../../assets/борцовки.png" alt="Товар 3">
-                            </div>
-                            <figcaption class="card__figcaption">Борцовки</figcaption>
-                            <div class="card__price">3500.00 ₽</div>
-                        </figure>
-                    </li>
-                </ul>
-        </div>
+        <section class="goods">
+            <h1 class="goods__title">Каталог товаров</h1>
+            <div class="goods__list">
+                <figure class="goods-item">
+                    <div class="goods-item__image-wrapper">
+                        <img class="goods-item__image" src="../../assets/папаха.png" alt="Папаха">
+                    </div>
+                    <figcaption class="goods-item__caption">Папаха</figcaption>
+                    <div class="goods-item__price">2 500 ₽</div>
+                </figure>
+                <figure class="goods-item">
+                    <div class="goods-item__image-wrapper">
+                        <img class="goods-item__image" src="../../assets/трико.png" alt="Трико">
+                    </div>
+                    <figcaption class="goods-item__caption">Трико</figcaption>
+                    <div class="goods-item__price">5 000 ₽</div>
+                </figure>
+                <figure class="goods-item">
+                    <div class="goods-item__image-wrapper">
+                        <img class="goods-item__image" src="../../assets/борцовки.png" alt="Борцовки">
+                    </div>
+                    <figcaption class="goods-item__caption">Борцовки</figcaption>
+                    <div class="goods-item__price">3 500 ₽</div>
+                </figure>
+            </div>
+        </section>
     </main>
     <footer class="footer">
-        <p>© 2024 Все права защищены. Контактная информация</p>
+        <p class="footer__text">&copy; 2024 Мой сайт</p>
     </footer>
 </div>
+<script>
+    // Функция для переключения темы
+    function toggleTheme() {
+        const currentTheme = document.documentElement.getAttribute('data-theme');
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+        // Устанавливаем новую тему
+        document.documentElement.setAttribute('data-theme', newTheme);
+
+        // Обновляем текст кнопки
+        const themeToggle = document.getElementById('themeToggle');
+        themeToggle.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+
+        // Сохраняем выбор пользователя в localStorage
+        localStorage.setItem('theme', newTheme);
+    }
+
+    // Функция для инициализации темы при загрузке страницы
+    function initializeTheme() {
+        const savedTheme = localStorage.getItem('theme');
+        const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+        let theme = 'light';
+
+        if (savedTheme) {
+            theme = savedTheme;
+        } else if (systemPrefersDark) {
+            theme = 'dark';
+        }
+
+        // Устанавливаем тему
+        document.documentElement.setAttribute('data-theme', theme);
+
+        // Обновляем текст кнопки
+        const themeToggle = document.getElementById('themeToggle');
+        if (themeToggle) {
+            themeToggle.textContent = theme === 'dark' ? '☀️' : '🌙';
+        }
+    }
+
+    // Инициализируем тему при загрузке страницы
+    document.addEventListener('DOMContentLoaded', initializeTheme);
+
+    // Добавляем обработчик события для кнопки переключения темы
+    document.addEventListener('DOMContentLoaded', function() {
+        const themeToggle = document.getElementById('themeToggle');
+        if (themeToggle) {
+            themeToggle.addEventListener('click', toggleTheme);
+        }
+    });
+</script>
 </body>

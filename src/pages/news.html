@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang = "ru">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,43 +7,106 @@
     <link rel="stylesheet" href="../../styles/style_news.css">
 </head>
 <body>
-<div class="page-container">
+<div class="page">
     <header class="header">
-        <h1>Наши новости</h1>
+        <h1 class="header__title">Новости дня</h1>
     </header>
     <nav class="nav">
-        <ul class="nav-list">
-            <li class="nav-item"><a class="nav-link" href="../index.html">Главная</a></li>
-            <li class="nav-item"><a class="nav-link" href="news.html">Новости</a></li>
-            <li class="nav-item"><a class="nav-link" href="goods.html">Товары</a></li>
-            <li class="nav-item"><a class="nav-link" href="contacts.html">Контакты</a></li>
+        <ul class="nav__list">
+            <li class="nav__item"><a class="nav__link" href="../index.html">Главная</a></li>
+            <li class="nav__item nav__item--active"><a class="nav__link" href="news.html">Новости</a></li>
+            <li class="nav__item"><a class="nav__link" href="goods.html">Товары</a></li>
+            <li class="nav__item"><a class="nav__link" href="contacts.html">Контакты</a></li>
+            <li class="nav__item">
+                <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему">
+                    🌙
+                </button>
+            </li>
         </ul>
     </nav>
     <main class="main">
-        <div class="content">
-            <h1 class="title">Список новостей</h1>
-            <section class="content__card">
-                <h3 class="content__title">В Северной Осетии разливали водку в антисанитарии</h3>
-                <p class="content__intelligence">01-10-2025 9:00 Д. А. Цатурян</p>
-                <p class="content__info">Подпольный цех работал на складе, расположенном на улице Полевой в станице Архонской. 
-                    Собственник нежилого помещения - 46-летний житель села Фарн без соответствующей лицензии.</p>
-            </section>
-            <section class="content__card">
-                <h3 class="content__title">На предпринимателя из Беслана заведено уголовное дело за загрязнение воздуха</h3>
-                <p class="content__intelligence">05-10-2025 12:00 Д. А. Цатурян</p>
-                <p class="content__info">В резултате выброса в атмосферу веществ, повлекших изменения свойств воздуха, некоторые жители испытали затрудненное дыхание.</p>
-            </section>
-            <section class="content__card">
-                <h3 class="content__title">Тысячу блоков сигарет на 1.3 млн рублей обнаружили на КПП Верхний Ларс</h3>
-                <p class="content__intelligence">10-10-2025 15:00 Д. А. Цатурян</p>
-                <p class="content__info">Тайник с сигаретами нашли сотрудники таможни в пассажирском автобусе из Грузии. 51-летний водитель-иностранец
-                    пояснил, что вез табачные изделия для личных целей.
-                </p>
+        <div class="news">
+            <h1 class="news__title">Список новостей</h1>
+            <section class="news__list">
+                <article class="news-item">
+                    <h3 class="news-item__title">В Северной Осетии разливали водку в антисанитарии</h3>
+                    <p class="news-item__date">01-10-2025 9:00 Д. А. Цатурян</p>
+                    <p class="news-item__text">Подпольный цех работал на складе, расположенном на улице Полевой в
+                        станице Архонской.
+                        Собственник нежилого помещения - 46-летний житель села Фарн без соответствующей лицензии.</p>
+                </article>
+                <article class="news-item">
+                    <h3 class="news-item__title">На предпринимателя из Беслана заведено уголовное дело за загрязнение
+                        воздуха</h3>
+                    <p class="news-item__date">05-10-2025 12:00 Д. А. Цатурян</p>
+                    <p class="news-item__text">В результате выброса в атмосферу веществ, повлекших изменения свойств
+                        воздуха, некоторые жители испытали затрудненное дыхание.</p>
+                </article>
+                <article class="news-item">
+                    <h3 class="news-item__title">Тысячу блоков сигарет на 1.3 млн рублей обнаружили на КПП Верхний
+                        Ларс</h3>
+                    <p class="news-item__date">10-10-2025 15:00 Д. А. Цатурян</p>
+                    <p class="news-item__text">Тайник с сигаретами нашли сотрудники таможни в пассажирском автобусе из
+                        Грузии. 51-летний водитель-иностранец
+                        пояснил, что вез табачные изделия для личных целей.
+                    </p>
+                </article>
             </section>
         </div>
     </main>
     <footer class="footer">
-        <p>© 2024 Все права защищены. Контактная информация</p>
+        <p class="footer__text">&copy; 2024 Мой сайт</p>
     </footer>
 </div>
+<script>
+    // Функция для переключения темы
+    function toggleTheme() {
+        const currentTheme = document.documentElement.getAttribute('data-theme');
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+        // Устанавливаем новую тему
+        document.documentElement.setAttribute('data-theme', newTheme);
+
+        // Обновляем текст кнопки
+        const themeToggle = document.getElementById('themeToggle');
+        themeToggle.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+
+        // Сохраняем выбор пользователя в localStorage
+        localStorage.setItem('theme', newTheme);
+    }
+
+    // Функция для инициализации темы при загрузке страницы
+    function initializeTheme() {
+        const savedTheme = localStorage.getItem('theme');
+        const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+        let theme = 'light';
+
+        if (savedTheme) {
+            theme = savedTheme;
+        } else if (systemPrefersDark) {
+            theme = 'dark';
+        }
+
+        // Устанавливаем тему
+        document.documentElement.setAttribute('data-theme', theme);
+
+        // Обновляем текст кнопки
+        const themeToggle = document.getElementById('themeToggle');
+        if (themeToggle) {
+            themeToggle.textContent = theme === 'dark' ? '☀️' : '🌙';
+        }
+    }
+
+    // Инициализируем тему при загрузке страницы
+    document.addEventListener('DOMContentLoaded', initializeTheme);
+
+    // Добавляем обработчик события для кнопки переключения темы
+    document.addEventListener('DOMContentLoaded', function() {
+        const themeToggle = document.getElementById('themeToggle');
+        if (themeToggle) {
+            themeToggle.addEventListener('click', toggleTheme);
+        }
+    });
+</script>
 </body>

@@ -7,68 +7,129 @@
     <link rel="stylesheet" href="../styles/style_index.css">
 </head>
 <body>
-<div class="page-container">
+<div class="page">
     <header class="header">
-        <h1>Профиль</h1>
+        <h1 class="header__title">Мой профиль</h1>
     </header>
     <nav class="nav">
-        <ul class="nav-list">
-            <li class="nav-item"><a class="nav-link" href="index.html">Главная</a></li>
-            <li class="nav-item"><a class="nav-link" href="pages/news.html">Новости</a></li>
-            <li class="nav-item"><a class="nav-link" href="pages/goods.html">Товары</a></li>
-            <li class="nav-item"><a class="nav-link" href="pages/contacts.html">Контакты</a></li>
+        <ul class="nav__list">
+            <li class="nav__item nav__item--active"><a class="nav__link" href="index.html">Главная</a></li>
+            <li class="nav__item"><a class="nav__link" href="pages/news.html">Новости</a></li>
+            <li class="nav__item"><a class="nav__link" href="pages/goods.html">Товары</a></li>
+            <li class="nav__item"><a class="nav__link" href="pages/contacts.html">Контакты</a></li>
+            <li class="nav__item">
+                <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему">
+                    🌙
+                </button>
+            </li>
         </ul>
     </nav>
     <main class="main">
-        <article class="profile-header">
-            <h1 class="profile-title">Информация об авторе</h1>
-            <img class="profile-photo" src="../assets/photo.png" alt="Фото автора">
-            <h2 class="profile-name">Цатурян Давид Ашотович</h2>
-            <p class="profile-group">ЭФБО-05-24</p>
-        </article>
-        <section class="about-me">
-            <h2>Обо мне</h2>
-            <p>
-                Я родился во Владикавказе в 2004 году, в гетто моего города. Глупость
-                ударила в голову, и я решился поступить в Москву на программиста.
-            </p>
-        </section>
-        <section class="skills-container">
-            <h2 class="skill-title">Мои навыки</h2>
-            <div class="skills-grid">
-                <div class="skill-tag">HTML/CSS/JS</div>
-                <div class="skill-tag">SQL</div>
-                <div class="skill-tag">Python</div>
-                <div class="skill-tag">C++/C#</div>
+        <section class="profile">
+            <div class="profile__card">
+                <img class="profile__photo" src="../assets/photo.png" alt="Фото автора">
+                <div class="profile__info">
+                    <h2 class="profile__name">Цатурян Давид Ашотович</h2>
+                    <p class="profile__group">ЭФБО-05-24</p>
+                </div>
             </div>
         </section>
-        <section class="experience-section">
-            <h2 class="section-title">Мой опыт работы</h2>
-            <div class="experience-grid">
-                <article class="experience-card">
-                    <h3 class="experience-title">Разработка баз данных</h3>
-                    <p class="experience-desc">
+        <section class="about">
+            <h2 class="about__title">Обо мне</h2>
+            <div class="about__content">
+                <p class="about__text">
+                    Студент, увлекаюсь веб-разработкой. Изучаю HTML, CSS,
+                    JavaScript, а также SQL, Python и C#/C++. Люблю создавать красивые и функциональные сайты.
+                </p>
+            </div>
+        </section>
+        <section class="skills">
+            <h2 class="skills__title">Мои навыки</h2>
+            <div class="skills__list">
+                <div class="skill skill--html"><span class="skill__name">HTML/CSS/JS</span></div>
+                <div class="skill skill--sql"><span class="skill__name">SQL</span></div>
+                <div class="skill skill--python"><span class="skill__name">Python</span></div>
+                <div class="skill skill--c"><span class="skill__name">C++/C#</span></div>
+            </div>
+        </section>
+        <section class="projects">
+            <h2 class="projects__title">Мой опыт работы</h2>
+            <div class="projects__grid">
+                <div class="project-card">
+                    <h3 class="project-card__title">Разработка баз данных</h3>
+                    <p class="project-card__desc">
                         Разрабатывал базы данных для различных предметных областей.
                     </p>
-                </article>
-                <article class="experience-card">
-                    <h3 class="experience-title">Разработка десктопных приложений</h3>
-                    <p class="experience-desc">
+                </div>
+                <div class="project-card">
+                    <h3 class="project-card__title">Разработка десктопных приложений</h3>
+                    <p class="project-card__desc">
                         Разрабатывал десктопные приложения под нужды своих заказчиков.
                     </p>
-                </article>
-                <article class="experience-card">
-                    <h3 class="experience-title">Разработка сайтов</h3>
-                    <p class="experience-desc">
+                </div>
+                <div class="project-card">
+                    <h3 class="project-card__title">Разработка сайтов</h3>
+                    <p class="project-card__desc">
                         Разрабатывал сайты для маркетплейсов.
                     </p>
-                </article>
+                </div>
             </div>
         </section>
     </main>
     <footer class="footer">
-        <p>© 2024 Все права защищены. Контактная информация</p>
+        <p class="footer__text">&copy; 2024 Мой сайт</p>
     </footer>
 </div>
+<script>
+    // Функция для переключения темы
+    function toggleTheme() {
+        const currentTheme = document.documentElement.getAttribute('data-theme');
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+        // Устанавливаем новую тему
+        document.documentElement.setAttribute('data-theme', newTheme);
+
+        // Обновляем текст кнопки
+        const themeToggle = document.getElementById('themeToggle');
+        themeToggle.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+
+        // Сохраняем выбор пользователя в localStorage
+        localStorage.setItem('theme', newTheme);
+    }
+
+    // Функция для инициализации темы при загрузке страницы
+    function initializeTheme() {
+        const savedTheme = localStorage.getItem('theme');
+        const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+        let theme = 'light';
+
+        if (savedTheme) {
+            theme = savedTheme;
+        } else if (systemPrefersDark) {
+            theme = 'dark';
+        }
+
+        // Устанавливаем тему
+        document.documentElement.setAttribute('data-theme', theme);
+
+        // Обновляем текст кнопки
+        const themeToggle = document.getElementById('themeToggle');
+        if (themeToggle) {
+            themeToggle.textContent = theme === 'dark' ? '☀️' : '🌙';
+        }
+    }
+
+    // Инициализируем тему при загрузке страницы
+    document.addEventListener('DOMContentLoaded', initializeTheme);
+
+    // Добавляем обработчик события для кнопки переключения темы
+    document.addEventListener('DOMContentLoaded', function() {
+        const themeToggle = document.getElementById('themeToggle');
+        if (themeToggle) {
+            themeToggle.addEventListener('click', toggleTheme);
+        }
+    });
+</script>
 </body>
 </html>
