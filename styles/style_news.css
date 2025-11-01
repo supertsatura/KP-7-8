@@ -1,134 +1,209 @@
-/* ===== БАЗОВЫЕ СТИЛИ ===== */
+/* CSS переменные */
+:root {
+    --color-main: #2c3e50;
+    --color-accent: #3498db;
+    --color-light: #ecf0f1;
+    --color-dark: #34495e;
+    --color-text: #2c3e50;
+    --color-white: #ffffff;
+    --shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    --radius: 8px;
+    --space-sm: 10px;
+    --space-md: 20px;
+    --space-lg: 30px;
+}
+
+[data-theme="dark"] {
+    --color-main: #7e7e7e;
+    --color-accent: #ffffff;
+    --color-light: #2d2d2d;
+    --color-dark: #404040;
+    --color-text: #ffffff;
+    --color-white: #000000FF;
+    --color-background: #303030;
+    --color-surface: #404040;
+    --shadow: 0 2px 5px rgba(253, 253, 253, 0.5);
+    --hover-shadow: 0 6px 20px rgba(79, 172, 254, 0.3);
+}
+
+/* ===== ПЕРЕКЛЮЧАТЕЛЬ ТЕМЫ ===== */
+.theme-toggle {
+    background: var(--color-accent);
+    color: var(--color-white);
+    border: none;
+    border-radius: var(--radius);
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+}
+
+.theme-toggle:hover {
+    transform: scale(1.1);
+    background: var(--color-main);
+}
+
+/* ===== СТИЛИ ДЛЯ ТЕМНОЙ ТЕМЫ ===== */
+[data-theme="dark"] .header {
+    background: var(--color-main);
+    color: var(--color-text);
+}
+
+[data-theme="dark"] .nav {
+    background: var(--color-dark);
+}
+
+[data-theme="dark"] .footer {
+    background: var(--color-main);
+    color: var(--color-text);
+}
+
+[data-theme="dark"] .news,
+[data-theme="dark"] .news-item {
+    background: var(--color-surface);
+    color: var(--color-text);
+}
+
+[data-theme="dark"] .news__title,
+[data-theme="dark"] .news-item__title {
+    color: var(--color-text);
+}
+
+[data-theme="dark"] .news-item__text {
+    color: var(--color-text);
+}
+
+/* Базовые стили */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    /* Современный шрифт для лучшей читаемости */
-    margin: 0; /* Убираем стандартные отступы браузера */
-    padding: 0; /* Убираем стандартные внутренние отступы */
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    /* Красивый градиентный фон всей страницы */
-    min-height: 100vh; /* Минимальная высота равна высоте окна браузера */
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--color-text);
+    background-color: var(--color-light);
 }
 
 /* ===== КОНТЕЙНЕР СТРАНИЦЫ ===== */
-.page-container {
+.page {
     max-width: 1200px;
     margin: 0 auto;
-    background: white;
+    background: var(--color-surface);
     min-height: 100vh;
-    box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
-    /* Новое: Сеточный макет для семантических областей */
-    display: grid;
-    grid-template-rows: auto auto 1fr auto;
-    grid-template-areas:
-    "header"
-    "nav"
-    "main"
-    "footer";
 }
 
 /* ===== ШАПКА ===== */
 .header {
-    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
-    /* Темный градиентный фон */
-    color: white; /* Белый цвет текста */
-    text-align: center; /* Выравнивание текста по центру */
-    padding: 30px; /* Внутренние отступы со всех сторон */
-    font-size: 28px; /* Размер шрифта */
-    font-weight: 300; /* Легкое начертание шрифта */
-    letter-spacing: 2px; /* Расстояние между буквами */
-    /* Новое: Привязка к области сетки */
-    grid-area: header;
+    background: var(--color-main);
+    color: var(--color-white);
+    padding: var(--space-lg);
+    text-align: center;
+}
+
+.header__title{
+    font-size: 2rem;
 }
 
 /* ===== НАВИГАЦИЯ ===== */
 .nav {
-    background: #2c3e50; /* Темно-синий фон навигации */
-    padding: 20px 0; /* Вертикальные отступы */
-    /* Новое: Привязка к области сетки */
-    grid-area: nav;
+    background: var(--color-dark);
 }
 
-.nav-list {
-    list-style: none; /* Убираем маркеры списка */
-    margin: 0; /* Убираем внешние отступы */
-    padding: 0; /* Убираем внутренние отступы */
-    display: flex; /* Горизонтальное расположение элементов */
-    justify-content: center; /* Выравнивание по центру */
-    gap: 25px; /* Расстояние между элементами навигации */
+.nav__list {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: var(--space-sm);
 }
 
-.nav-item {
-    margin: 0; /* Убираем отступы у пунктов меню */
+.nav__item {
+    margin: 0;
 }
 
-.nav-link {
-    color: white; /* Белый цвет текста ссылок */
-    text-decoration: none; /* Убираем подчеркивание ссылок */
-    padding: 12px 25px; /* Отступы внутри ссылок */
-    border-radius: 25px; /* Скругленные углы (капсульная форма) */
-    transition: all 0.3s ease; /* Плавные анимации при изменении */
-    font-weight: 500; /* Средняя жирность шрифта */
+.nav__link {
+    display: block;
+    padding: var(--space-md);
+    color: var(--color-white);
+    text-decoration: none;
+    transition: background-color 0.3s;
 }
 
-.nav-link:hover {
-    background: rgba(255, 255, 255, 0.1);
-    /* Полупрозрачный белый фон при наведении */
-    transform: translateY(-2px); /* Легкое поднятие элемента при наведении */
+.nav__link:hover {
+    background: var(--color-accent);
+}
+
+.nav__item--active .nav__link {
+    background: var(--color-accent);
+    font-weight: bold;
 }
 
 /* ===== ОСНОВНОЙ КОНТЕНТ ===== */
-main.main {
-    padding: 40px; /* Внутренние отступы контента */
-    max-width: 900px; /* Максимальная ширина контента */
-    margin: 0 auto; /* Центрирование контента */
-    /* Новое: Привязка к области сетки */
-    grid-area: main;
+.main {
+    padding: var(--space-lg);
+    background-color:  var(--color-surface);
 }
 
-.content {
-
+.news {
+    background: var(--color-white);
+    padding: var(--space-lg);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
 }
 
-.title {
-    text-align: center;
-    font-size: 32px; /* Размер шрифта заголовка */
-    color: #2c3e50; /* Темно-синий цвет текста */
-    margin: 20px 0; /* Отступ снизу */
-    font-weight: 300; /* Легкое начертание шрифта */
+.news__title {
+    color: var(--color-main);
+    margin-bottom: var(--space-md);
+    font-size: 1.5rem;
 }
 
-.content__card {
-    background: white; /* Белый фон карточки */
-    padding: 25px; /* Внутренние отступы */
-    margin: 30px 0; /* Вертикальные отступы */
-    border-radius: 12px; /* Скругленные углы */
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08); /* Легкая тень */
-    border-left: 4px solid #667eea; /* Синяя полоса слева */
-    transition: transform 0.3s ease; /* Плавная анимация трансформации */
+.news__list{
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+}
+
+.news-item {
+    padding: var(--space-md);
+    border-left: 4px solid var(--color-accent);
+    background: var(--color-light);
+    border-radius: var(--radius);
+}
+
+.news-item__title {
+    color: var(--color-main);
+    margin-bottom: var(--space-sm);
+}
+
+.news-item__date {
+    color: var(--color-accent);
+    font-size: 0.9rem;
+    margin-bottom: var(--space-sm);
+}
+
+.news-item__text {
+    line-height: 1.5;
 }
 
 /* ===== ФУТЕР ===== */
 .footer {
-    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
-    color: white;
+    background: var(--color-main);
+    color: var(--color-white);
     text-align: center;
-    padding: 30px;
-    margin-top: 50px;
-    /* Новое: Привязка к области сетки */
-    grid-area: footer;
+    padding: var(--space-md);
+    margin-top: var(--space-lg);
+}
+
+.footer__text{
+
 }
 
 @media (max-width: 768px) {
-    .nav-list {
+    .nav__list {
         flex-direction: column;
         align-items: center;
         gap: 10px;
-    }
-    .skills-grid {
-        grid-template-columns: 1fr;
-    }
-    .experience-grid {
-        grid-template-columns: 1fr;
     }
     main.content {
         padding: 20px;
