@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Контакты - Портфолио</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+</head>
+<body class="bg-light">
+<div class="container-fluid p-0">
+  <!-- Header -->
+  <header class="bg-primary text-white py-4">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col">
+          <h1 class="h3 mb-1">Мой Портфолио</h1>
+          <p class="mb-0 opacity-75">Студент-разработчик</p>
+        </div>
+        <div class="col-auto">
+          <span class="badge bg-light text-primary">ЭФБО-05-24</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="../index_bootstrap.html">
+              <i class="bi bi-house me-1"></i>Главная
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="news_bootstrap.html">
+              <i class="bi bi-newspaper me-1"></i>Новости
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="goods_bootstrap.html">
+              <i class="bi bi-cart me-1"></i>Товары
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="contacts_bootstrap.html">
+              <i class="bi bi-telephone me-1"></i>Контакты
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="container my-4">
+    <!-- Page Title -->
+    <div class="row mb-4">
+      <div class="col">
+        <h2 class="text-primary">
+          <i class="bi bi-telephone me-2"></i>Мои контакты
+        </h2>
+        <p class="text-muted">Свяжитесь со мной удобным для Вас способом</p>
+      </div>
+    </div>
+
+    <!-- Contacts Section -->
+    <section class="mb-5">
+      <div class="row g-4">
+        <!-- Email -->
+        <div class="col-md-6 col-lg-4">
+          <div class="card contact-card shadow-sm h-100">
+            <div class="card-body text-center p-4">
+              <div class="bg-primary text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
+                <i class="bi bi-envelope fs-4"></i>
+              </div>
+              <h5 class="card-title">Электронная почта</h5>
+              <p class="card-text text-muted">davidtsaturyan24@inbox.ru</p>
+              <a href="mailto:davidtsaturyan24@inbox.ru" class="btn btn-outline-primary btn-sm">
+                <i class="bi bi-send me-1"></i>Написать
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Address -->
+        <div class="col-md-6 col-lg-4">
+          <div class="card contact-card shadow-sm h-100">
+            <div class="card-body text-center p-4">
+              <div class="bg-success text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
+                <i class="bi bi-geo-alt fs-4"></i>
+              </div>
+              <h5 class="card-title">Адрес</h5>
+              <p class="card-text text-muted">г. Владикавказ, ул. пр-кт Героев Отечества 4</p>
+              <button class="btn btn-outline-success btn-sm">
+                <i class="bi bi-map me-1"></i>Посмотреть на карте
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Phone -->
+        <div class="col-md-6 col-lg-4">
+          <div class="card contact-card shadow-sm h-100">
+            <div class="card-body text-center p-4">
+              <div class="bg-info text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
+                <i class="bi bi-phone fs-4"></i>
+              </div>
+              <h5 class="card-title">Телефон</h5>
+              <p class="card-text text-muted">+7 (777) 777-77-77</p>
+              <button class="btn btn-outline-info btn-sm" data-bs-toggle="modal" data-bs-target="#contactModal">
+                <i class="bi bi-telephone-outbound me-1"></i>Позвонить мне
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Working Hours -->
+        <div class="col-md-6 col-lg-4">
+          <div class="card contact-card shadow-sm h-100">
+            <div class="card-body text-center p-4">
+              <div class="bg-warning text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
+                <i class="bi bi-clock fs-4"></i>
+              </div>
+              <h5 class="card-title">Время работы</h5>
+              <p class="card-text text-muted">Пн-Пт: 9:00-18:00</p>
+              <p class="card-text text-muted small">Сб-Вс: выходной</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Social Media -->
+        <div class="col-md-6 col-lg-4">
+          <div class="card contact-card shadow-sm h-100">
+            <div class="card-body text-center p-4">
+              <div class="bg-dark text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
+                <i class="bi bi-people fs-4"></i>
+              </div>
+              <h5 class="card-title">Социальные сети</h5>
+              <div class="d-flex justify-content-center gap-3 mt-3">
+                <a href="#" class="text-primary social-icon" title="VK">
+                  <i class="bi bi-vimeo"></i>
+                </a>
+                <a href="#" class="text-info social-icon" title="Telegram">
+                  <i class="bi bi-telegram"></i>
+                </a>
+                <a href="#" class="text-success social-icon" title="WhatsApp">
+                  <i class="bi bi-whatsapp"></i>
+                </a>
+              </div>
+              <p class="card-text text-muted small mt-2">Следите за обновлениями</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick Contact -->
+        <div class="col-md-6 col-lg-4">
+          <div class="card contact-card shadow-sm h-100">
+            <div class="card-body text-center p-4 d-flex flex-column">
+              <div class="bg-secondary text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
+                <i class="bi bi-chat-dots fs-4"></i>
+              </div>
+              <h5 class="card-title">Быстрая связь</h5>
+              <p class="card-text text-muted flex-grow-1">Есть вопросы? Напишите мне прямо сейчас!</p>
+              <button class="btn btn-primary mt-auto" data-bs-toggle="modal" data-bs-target="#contactModal">
+                <i class="bi bi-pencil-square me-1"></i>Написать сообщение
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Additional Info -->
+    <section class="mb-5">
+      <div class="card shadow-sm">
+        <div class="card-header bg-light">
+          <h3 class="card-title h5 mb-0">
+            <i class="bi bi-info-circle text-primary me-2"></i>
+            Дополнительная информация
+          </h3>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-6">
+              <h6 class="text-primary">Время ответа</h6>
+              <p class="text-muted small">Обычно отвечаю на письма в течение 2-3 часов в рабочее время</p>
+            </div>
+            <div class="col-md-6">
+              <h6 class="text-primary">Предпочтительный способ связи</h6>
+              <p class="text-muted small">Для срочных вопросов лучше использовать Telegram или телефон</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-white py-4 mt-5">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-6">
+          <p class="mb-0">&copy; 2024 Портфолио студента. Все права защищены.</p>
+        </div>
+        <div class="col-md-6 text-md-end">
+          <a href="contacts.html" class="text-white text-decoration-none me-3">Контакты</a>
+          <a href="#" class="text-white text-decoration-none">Политика конфиденциальности</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title" id="contactModalLabel">
+          <i class="bi bi-telephone me-2"></i>Форма обратной связи
+        </h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form id="feedbackForm">
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label for="name" class="form-label">Имя <span class="text-danger">*</span></label>
+              <input type="text" class="form-control" id="name" name="name" required placeholder="Введите ваше имя">
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="phone" class="form-label">Телефон <span class="text-danger">*</span></label>
+              <input type="tel" class="form-control" id="phone" name="phone" required placeholder="+7 (XXX) XXX-XX-XX" pattern="[\+]?[78]\s?[\(]?\d{3}[\)]?\s?\d{3}[\-]?\d{2}[\-]?\d{2}">
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="email" class="form-label">Электронная почта <span class="text-danger">*</span></label>
+            <input type="email" class="form-control" id="email" name="email" required placeholder="example@mail.ru">
+          </div>
+          <div class="mb-3">
+            <label for="category" class="form-label">Категория обращения <span class="text-danger">*</span></label>
+            <select class="form-select" id="category" name="category" required>
+              <option value="">Выберите категорию</option>
+              <option value="technical">Техническая поддержка</option>
+              <option value="commercial">Коммерческое предложение</option>
+              <option value="cooperation">Сотрудничество</option>
+              <option value="complaint">Жалоба</option>
+              <option value="suggestion">Предложение</option>
+              <option value="other">Другое</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="message" class="form-label">Текст обращения <span class="text-danger">*</span></label>
+            <textarea class="form-control" id="message" name="message" rows="4" required placeholder="Опишите вашу проблему или вопрос..."></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Отмена</button>
+        <button type="button" class="btn btn-primary" onclick="submitForm()">
+          <i class="bi bi-send me-1"></i>Отправить
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  // Функция для отправки формы
+  function submitForm() {
+    const form = document.getElementById('feedbackForm');
+    const formData = new FormData(form);
+
+    // Простая валидация
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+
+    // Собираем данные формы
+    const data = {
+      name: formData.get('name'),
+      phone: formData.get('phone'),
+      email: formData.get('email'),
+      category: formData.get('category'),
+      message: formData.get('message')
+    };
+
+    // В реальном приложении здесь был бы AJAX-запрос
+    console.log('Данные формы:', data);
+
+    // Показываем уведомление об успешной отправке
+    alert('Спасибо! Ваше обращение отправлено. Мы свяжемся с вами в ближайшее время.');
+
+    // Закрываем модальное окно
+    const modal = bootstrap.Modal.getInstance(document.getElementById('contactModal'));
+    modal.hide();
+
+    // Очищаем форму
+    form.reset();
+  }
+</script>
+</body>
+</html>
