@@ -1,3 +1,4 @@
-https://supertsatura.github.io/frontend-backend/src/
+https://supertsatura.github.io/frontend-backend/src/index.html
+
 
 
