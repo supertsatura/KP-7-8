@@ -1,189 +1,252 @@
-/* ===== БАЗОВЫЕ СТИЛИ ===== */
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    /* Современный 
-шрифт для лучшей читаемости */
+/* CSS переменные */
+:root {
+    --color-main: #2c3e50;
+    --color-accent: #3498db;
+    --color-light: #ecf0f1;
+    --color-dark: #34495e;
+    --color-text: #2c3e50;
+    --color-white: #ffffff;
+    --shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    --radius: 8px;
+    --space-sm: 10px;
+    --space-md: 20px;
+    --space-lg: 30px;
+}
+
+[data-theme="dark"] {
+    --color-main: #7e7e7e;
+    --color-accent: #ffffff;
+    --color-light: #BFBFBFFF;
+    --color-dark: #404040;
+    --color-text: #ffffff;
+    --color-white: #000000;
+    --color-background: #303030;
+    --color-surface: #404040;
+    --shadow: 0 2px 5px rgba(253, 253, 253, 0.5);
+    --hover-shadow: 0 6px 20px rgba(79, 172, 254, 0.3);
+}
+
+/* ===== ПЕРЕКЛЮЧАТЕЛЬ ТЕМЫ ===== */
+.theme-toggle {
+    background: var(--color-accent);
+    color: var(--color-white);
+    border: none;
+    border-radius: var(--radius);
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+}
+
+.theme-toggle:hover {
+    transform: scale(1.1);
+    background: var(--color-main);
+}
+
+/* ===== СТИЛИ ДЛЯ ТЕМНОЙ ТЕМЫ ===== */
+[data-theme="dark"] .header {
+    background: var(--color-main);
+    color: var(--color-text);
+}
+
+[data-theme="dark"] .nav {
+    background: var(--color-dark);
+}
+
+[data-theme="dark"] .footer {
+    background: var(--color-main);
+    color: var(--color-text);
+}
+
+[data-theme="dark"] .contacts,
+[data-theme="dark"] .contact-item {
+    background: var(--color-surface);
+    color: var(--color-text);
+}
+
+[data-theme="dark"] .contacts__title,
+[data-theme="dark"] .contact-item__title {
+    color: var(--color-text);
+}
+
+[data-theme="dark"] .contact-item__value {
+    color: var(--color-text);
+}
+
+[data-theme="dark"] .contact-button {
+    background: var(--color-dark);
+    color: var(--color-text);
+    border: 1px solid var(--color-accent);
+}
+
+[data-theme="dark"] .modal-header {
+    background: var(--color-main);
+    color: var(--color-text);
+}
+
+[data-theme="dark"] .modal-content {
+    background: var(--color-surface);
+    color: var(--color-text);
+}
+
+[data-theme="dark"] .form-group label {
+    color: var(--color-text);
+}
+
+[data-theme="dark"] .form-group input,
+[data-theme="dark"] .form-group select,
+[data-theme="dark"] .form-group textarea {
+    background: var(--color-dark);
+    color: var(--color-text);
+    border-color: var(--color-accent);
+}
+
+[data-theme="dark"] .btn-secondary {
+    background: var(--color-dark);
+    color: var(--color-text);
+    border-color: var(--color-accent);
+}
+
+/* Базовые стили */
+* {
     margin: 0;
-    /* Убираем стандартные отступы браузера */
     padding: 0;
-    /* Убираем стандартные внутренние отступы */
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    /* Красивый 
-градиентный фон всей страницы */
-    min-height: 100vh;
-    /* Минимальная высота равна высоте окна браузера */
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--color-text);
+    background-color: var(--color-background); /* Было var(--color-light) */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Добавить */
+    min-height: 100vh; /* Добавлено */
 }
 
 /* ===== КОНТЕЙНЕР СТРАНИЦЫ ===== */
-.page-container {
-    max-width: 1200px; /* Максимальная ширина контента */
-    margin: 0 auto; /* Центрирование контейнера по горизонтали */
-    background: white; /* Белый фон для основного содержимого */
-    min-height: 100vh; /* Минимальная высота равна высоте окна браузера */
-    box-shadow: 0 0 30px rgba(0, 0, 0, 0.1); /* Легкая тень вокруг всего контента */
-    /* Новое: Сеточный макет для семантических областей */
-    display: grid;
-    grid-template-rows: auto auto 1fr auto;
-    grid-template-areas:
-    "header"
-    "nav"
-    "main"
-    "footer";
+.page {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: var(--color-surface); /* Было var(--color-white) */
+    min-height: 100vh;
+    transition: background-color 0.3s ease; /* Добавить */
 }
 
 /* ===== ШАПКА ===== */
 .header {
-    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%); /* Темный градиентный фон */
-    color: white; /* Белый цвет текста */
-    text-align: center; /* Выравнивание текста по центру */
-    padding: 30px; /* Внутренние отступы со всех сторон */
-    font-size: 28px; /* Размер шрифта */
-    font-weight: 300; /* Легкое начертание шрифта */
-    letter-spacing: 2px; /* Расстояние между буквами */
-    /* Новое: Привязка к области сетки */
-    grid-area: header;
+    background: var(--color-main);
+    color: var(--color-white);
+    padding: var(--space-lg);
+    text-align: center;
+}
+
+.header__title{
+    font-size: 2rem;
 }
 
 /* ===== НАВИГАЦИЯ ===== */
 .nav {
-    background: #2c3e50; /* Темно-синий фон навигации */
-    padding: 20px 0; /* Вертикальные отступы */
-    /* Новое: Привязка к области сетки */
-    grid-area: nav;
+    background: var(--color-dark);
 }
 
-.nav-list {
+.nav__list {
     list-style: none;
-    /* Убираем маркеры списка */
-    margin: 0;
-    /* Убираем внешние отступы */
-    padding: 0;
-    /* Убираем внутренние отступы */
     display: flex;
-    /* Горизонтальное расположение элементов */
     justify-content: center;
-    /* Выравнивание по центру */
-    gap: 25px;
-    /* Расстояние между элементами навигации */
+    gap: var(--space-sm);
 }
 
-.nav-item {
+.nav__item {
     margin: 0;
-    /* Убираем отступы у пунктов меню */
 }
 
-.nav-link {
-    color: white;
-    /* Белый цвет текста ссылок */
+.nav__link {
+    display: block;
+    padding: var(--space-md);
+    color: var(--color-white);
     text-decoration: none;
-    /* Убираем подчеркивание ссылок */
-    padding: 12px 25px;
-    /* Отступы внутри ссылок */
-    border-radius: 25px;
-    /* Скругленные углы (капсульная форма) */
-    transition: all 0.3s ease;
-    /* Плавные анимации при изменении */
-    font-weight: 500;
-    /* Средняя жирность шрифта */
+    transition: background-color 0.3s;
 }
 
-.nav-link:hover {
-    background: rgba(255, 255, 255, 0.1);
-    /* Полупрозрачный белый фон при наведении 
-*/
-    transform: translateY(-2px);
-    /* Легкое поднятие элемента при наведении */
+.nav__link:hover {
+    background: var(--color-accent);
+}
+
+.nav__item--active .nav__link {
+    background: var(--color-accent);
+    font-weight: bold;
 }
 
 /* ===== ОСНОВНОЙ КОНТЕНТ ===== */
-main.main {
-    padding: 40px; /* Внутренние отступы контента */
-    max-width: 900px; /* Максимальная ширина контента */
-    margin: 0 auto; /* Центрирование контента */
-    /* Новое: Привязка к области сетки */
-    grid-area: main;
+.main {
+    padding: var(--space-lg);
+    margin:  70px 0;
 }
 
-.content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+/* Блок contacts */
+.contacts {
+    background: var(--color-white);
+    padding: var(--space-lg);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
 }
-
-.title {
-
-    font-size: 32px; /* Размер шрифта заголовка */
-    color: #2c3e50; /* Темно-синий цвет текста */
-    margin: 20px 0; /* Отступ снизу */
-    font-weight: 300; /* Легкое начертание шрифта */
+.contacts__title {
+    color: var(--color-main);
+    margin-bottom: var(--space-md);
+    font-size: 1.5rem;
+    text-align: center;
 }
-
-.email {
-    background: white; /* Белый фон карточки */
-    padding: 25px; /* Внутренние отступы */
-    margin: 35px 0; /* Вертикальные отступы */
-    border-radius: 12px; /* Скругленные углы */
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08); /* Легкая тень */
-    border-left: 4px solid #667eea; /* Синяя полоса слева */
-    border-right: 4px solid #667eea; /* Синяя полоса слева */
-    transition: transform 0.3s ease; /* Плавная анимация трансформации */
-}
-
-.address {
-    background: white; /* Белый фон карточки */
-    padding: 25px; /* Внутренние отступы */
-    margin: 35px 0; /* Вертикальные отступы */
-    border-radius: 12px; /* Скругленные углы */
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08); /* Легкая тень */
-    border-left: 4px solid #667eea; /* Синяя полоса слева */
-    border-right: 4px solid #667eea; /* Синяя полоса слева */
-    transition: transform 0.3s ease; /* Плавная анимация трансформации */
-}
-
-.contact-grid {
+.contacts__list {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    margin: 35px 0; /* Вертикальные отступы */
-    grid-column-gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--space-md);
 }
 
 .contact-item {
+    padding: var(--space-md);
+    background: var(--color-light);
+    border-radius: var(--radius);
     text-align: center;
-    list-style-type: none;
-    background: white; /* Белый фон карточки */
-    margin: 20px 0; /* Вертикальные отступы */
-    border-radius: 12px; /* Скругленные углы */
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08); /* Легкая тень */
-    transition: transform 0.3s ease; /* Плавная анимация трансформации */
-    padding: 25px; /* Внутренние отступы */
-    border-left: 4px solid #667eea; /* Синяя полоса слева */
-    border-right: 4px solid #667eea; /* Синяя полоса слева */
+    box-shadow: var(--shadow);
+}
+.contact-item__title {
+    color: var(--color-main);
+    margin-bottom: var(--space-sm);
+    font-size: 1.1rem;
+}
+.contact-item__value {
+    color: var(--color-accent);
+    font-weight: bold;
 }
 
 .contact-button {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    border: none;
-    margin: 30px 0; /* Вертикальные отступы */
-    padding: 15px 30px;
-    font-size: 18px;
-    font-weight: 600;
-    border-radius: 50px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    font-family: 'Arial', sans-serif;
+    background: var(--color-white);
+    padding: var(--space-lg);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    transition: transform 0.3s;
+    color: var(--color-main);
+    font-size: 1rem;
 }
 
 .contact-button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-    background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+    transform: translateY(-5px);
 }
 
 .contact-button:active {
     transform: translateY(-1px);
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.footer {
+    background: var(--color-main);
+    color: var(--color-white);
+    text-align: center;
+    padding: var(--space-md);
+    margin-top: var(--space-lg);
+}
+
+.footer__text {
+
 }
 
 /* ============================= Стили для модального окна ============================= */
@@ -193,6 +256,10 @@ dialog::backdrop {
 }
 
 dialog {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     border: none;
     border-radius: 12px;
     padding: 0;
@@ -202,6 +269,7 @@ dialog {
     width: 90vw;
     max-height: 90vh;
     overflow-y: auto;
+    margin: 0; /* Убираем любые отступы */
 }
 
 .modal-header {
@@ -310,19 +378,19 @@ dialog {
 @keyframes slideIn {
     from {
         opacity: 0;
-        transform: translateY(-50px) scale(0.9);
+        transform: translate(-50%, -60%) scale(0.9);
     }
     to {
         opacity: 1;
-        transform: translateY(0) scale(1);
+        transform: translate(-50%, -50%) scale(1);
     }
 }
 
-/* Адаптивность */
+/* Адаптивность диалогового окна */
 @media (max-width: 600px) {
     dialog {
-        margin: 1rem;
         width: calc(100vw - 2rem);
+        max-width: none;
     }
 
     .modal-actions {
@@ -334,25 +402,14 @@ dialog {
     }
 }
 
-/* ===== ФУТЕР ===== */
-.footer {
-    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
-    color: white;
-    text-align: center;
-    padding: 30px;
-    margin-top: 50px;
-    /* Новое: Привязка к области сетки */
-    grid-area: footer;
-}
-
 @media (max-width: 768px) {
-    .nav-list {
+    .nav__list {
         flex-direction: column;
         align-items: center;
         gap: 10px;
     }
 
-    .contact-grid {
+    .contacts {
         grid-template-columns: 1fr;
     }
 
